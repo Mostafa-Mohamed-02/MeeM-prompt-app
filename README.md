@@ -21,7 +21,7 @@ MeeM- prompt user guide:
 
 3- install the git app
 
-4- copy the repository url from the github page and open the folder you want to install the app then right click with mouse and open cmd (terminal prompt) write (git clone ..........) then press enter
+4- copy the repository url from the github page and open the folder you want to install the app then right click with mouse and open cmd (terminal prompt) write (git clone https://github.com/Mostafa-Mohamed-02/MeeM-prompt-app.git) then press enter
 
 5- congrats! , you installed the app folder and ready to go 🎉🎉
 
