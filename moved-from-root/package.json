@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "@tailwindcss/nesting": "^0.0.0-insiders.565cd3e",
+    "postcss-nesting": "^13.0.2"
+  }
+}

@@ -1,0 +1,456 @@
+/* Inspiration bubble card for web search results */
+.inspiration-bubble-card {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  border-radius: 12px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 260ms cubic-bezier(.2,.9,.2,1), box-shadow 260ms cubic-bezier(.2,.9,.2,1);
+  padding: 0;
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+.inspiration-bubble-card:hover, .group:hover .inspiration-bubble-card {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35), 0 0 28px var(--accent);
+}
+
+.animate-bubble-pop {
+  animation: bubblePop 0.7s cubic-bezier(.2,.9,.2,1);
+}
+
+@keyframes bubblePop {
+  0% {
+    transform: scale(0.92);
+    opacity: 0.5;
+  }
+  60% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+:root {
+  --primary: #6d28d9;
+  --primary-dark: #5b21b6;
+  --secondary: #3b82f6;
+  --accent: #8b5cf6;
+  --background-start: #1a1a2e;
+  --background-end: #0f0f1a;
+}
+
+body {
+  background: linear-gradient(135deg, var(--background-start), var(--background-end));
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Interactive blurred gradient background layers */
+.interactive-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.interactive-bg .layer {
+  position: absolute;
+  width: 60vmax;
+  height: 60vmax;
+  filter: blur(80px) saturate(120%);
+  transform: translate(-50%, -50%);
+  will-change: transform, opacity;
+  opacity: 0.7;
+}
+
+.interactive-bg .layer.one {
+  left: calc(var(--mouse-x, 50%) );
+  top: calc(var(--mouse-y, 30%) );
+  background: radial-gradient(circle at center, rgba(139,92,246,0.35), rgba(139,92,246,0.05));
+}
+
+.interactive-bg .layer.two {
+  left: calc(var(--mouse-x, 70%) );
+  top: calc(var(--mouse-y, 70%) );
+  background: radial-gradient(circle at center, rgba(59,130,246,0.25), rgba(59,130,246,0.03));
+}
+
+.interactive-bg .layer.three {
+  left: calc(var(--mouse-x, 30%) );
+  top: calc(var(--mouse-y, 80%) );
+  background: radial-gradient(circle at center, rgba(99,102,241,0.18), rgba(99,102,241,0.02));
+}
+
+/* subtle movement animation */
+.interactive-bg .layer { transition: left 0.12s linear, top 0.12s linear, opacity 0.4s ease; }
+
+/* reduce intensity on small screens */
+@media (max-width: 768px) {
+  .interactive-bg .layer { width: 120vmax; height: 120vmax; filter: blur(60px); opacity: 0.5; }
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: radial-gradient(circle at top right, rgba(139, 92, 246, 0.15), transparent 60%),
+              radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.1), transparent 60%);
+  pointer-events: none;
+}
+
+.font-display {
+  font-family: 'Orbitron', sans-serif;
+}
+
+.font-body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.shadow-glow {
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.2), 0 0 5px rgba(139, 92, 246, 0.1);
+}
+
+.gradient-border {
+  position: relative;
+  border: double 1px transparent;
+  background-image: linear-gradient(var(--background-start), var(--background-start)), 
+                    linear-gradient(to right, var(--primary), var(--secondary));
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+.glass-effect {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.05)
+  );
+  opacity: 0.2;
+  backdrop-filter: blur(12px);
+}
+
+.hover-lift {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -8px rgba(139, 92, 246, 0.3);
+}
+
+.btn-bubbled {
+  position: relative;
+  overflow: hidden;
+  border-radius: 9999px;
+  padding: 1.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  background-size: 200% 200%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-out;
+}
+
+.btn-wave {
+  position: relative;
+  overflow: hidden;
+  border-radius: 9999px;
+  padding: 1.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  background-size: 200% 200%;
+  transition: all 0.3s ease-out;
+}
+
+.btn-sparkle {
+  position: relative;
+  overflow: hidden;
+  border-radius: 9999px;
+  padding: 1.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  transition: all 0.3s ease-out;
+}
+
+.btn-multi-ripple {
+  position: relative;
+  overflow: hidden;
+  border-radius: 9999px;
+  padding: 1.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  transition: all 0.3s ease-out;
+}
+
+.btn-pulse-glow {
+  position: relative;
+  overflow: hidden;
+  border-radius: 9999px;
+  padding: 1.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  transition: all 0.3s ease-out;
+}
+
+.btn-bubbled::before,
+.btn-bubbled::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+}
+
+.btn-bubbled::before {
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 60%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: width 0.6s ease-out, height 0.6s ease-out, opacity 0.4s ease-out;
+}
+
+.btn-bubbled::after {
+  inset: -2px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, var(--accent), var(--secondary));
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: xor;
+  -webkit-mask-composite: xor;
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+
+.btn-bubbled:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 0 20px var(--accent);
+  background-position: -50% -50%;
+}
+
+.btn-bubbled:hover::before {
+  width: 200%;
+  height: 200%;
+  opacity: 1;
+}
+
+.btn-bubbled:hover::after {
+  opacity: 0.5;
+}
+
+.btn-bubbled:active {
+  transform: translateY(-1px) scale(0.98);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), 0 0 10px var(--accent);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes waveRipple {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes multiRipple {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes pulseGlow {
+  0% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+}
+
+.animate-pulse {
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.gradient-animate {
+  background-size: 200% 200%;
+  animation: gradientFlow 8s ease infinite;
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+.fade-in-up {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Model bubble styles */
+.model-bubble {
+  background: linear-gradient(135deg, #111827, #0b1220);
+  color: #d1d5db;
+  padding: 0.6rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255,255,255,0.04);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.model-bubble.active {
+  background: linear-gradient(135deg, rgba(139,92,246,0.15), rgba(59,130,246,0.08));
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(99,102,241,0.06);
+}
+.model-bubble.model-busy {
+  transform: translateY(-1px);
+}
+
+/* Desktop-optimized icon sizing */
+.h-10 { height: 2.5rem; }
+.w-10 { width: 2.5rem; }
+.h-12 { height: 3rem; }
+.w-12 { width: 3rem; }
+.icon-large { width: 3rem; height: 3rem; }
+.icon-med { width: 2rem; height: 2rem; }
+
+/* Inspiration gallery: ensure items grow from center of the page */
+.inspiration-card {
+  transform-origin: center center;
+  transition: transform 260ms cubic-bezier(.2,.9,.2,1), opacity 200ms ease;
+}
+.inspiration-card .relative { transform-origin: center center; }
+.inspiration-card.fade-in-up { transform: scale(0.98); opacity: 0; }
+.inspiration-card.fade-in-up.show {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Ensure the inline-grid grows from center when injected */
+.inline-grid { transform-origin: center center; }
+
+/* Make each inspiration tile the same box size */
+.inspiration-card {
+  width: 220px !important;
+  min-width: 220px !important;
+  max-width: 220px !important;
+  height: 320px !important;
+  min-height: 320px !important;
+  max-height: 320px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+}
+.inspiration-card > .relative {
+  width: 100% !important;
+  height: 200px !important;
+  min-height: 200px !important;
+  max-height: 200px !important;
+  object-fit: cover !important;
+  border-radius: 12px !important;
+}
+.inspiration-card > div.pt-3 {
+  flex: 1 1 auto !important;
+  min-height: 60px !important;
+  max-height: 100px !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+}
+
+@media (max-width: 1024px) {
+  .inspiration-card { width: 180px; }
+  .inspiration-card > .relative { height: 180px; }
+}
+
+@media (max-width: 640px) {
+  .inspiration-card { width: 100%; }
+  .inspiration-card > .relative { height: 56vw; }
+}

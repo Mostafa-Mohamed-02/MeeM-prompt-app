@@ -1,0 +1,5 @@
+{
+  "name": "MeeM-prompt-v1",
+  "description": "An application for architects to generate creative AI prompts for exterior designs. Upload an image to receive a variety of imaginative prompts based on web-inspired concepts.",
+  "requestFramePermissions": []
+}
