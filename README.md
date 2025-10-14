@@ -1,4 +1,4 @@
-<img width="2008" height="1031" alt="Untitled-1" src="https://github.com/user-attachments/assets/e0e791cf-9905-4546-9727-38c57059aa2f" />
+<img width="2008" height="1031" alt="Untitled-1" src="https://github.com/user-attachments/assets/f64348f3-1e76-4f08-a2c1-e7f6a7938e80" />
 
 
 # MeeM-prompt-app #
