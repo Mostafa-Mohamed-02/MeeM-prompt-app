@@ -196,3 +196,10 @@ There is 3 modes :
 - you can also modify the generated prompt by adding what changes you want in the text box above the generated prompt 
 
 ---Don't forget to follow me on Facebook, LinkedIn for future surprises and also give me the feedback for future versions that achieve your goals---
+
+
+<img width="1894" height="206" alt="Screenshot 2025-10-14 021619" src="https://github.com/user-attachments/assets/607f08f4-2063-40ef-b7ed-5226ced35f3b" />
+
+<img width="1786" height="113" alt="Screenshot 2025-10-14 021639" src="https://github.com/user-attachments/assets/a6455f14-b3ec-4b6d-90d7-c3b6a95e948b" />
+
+
